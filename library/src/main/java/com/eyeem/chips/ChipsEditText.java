@@ -68,7 +68,7 @@ public class ChipsEditText extends MultilineEditText {
       setCursorVisible(false);
 
       // default bubble & cursor style
-      setCurrentBubbleStyle(DefaultBubbles.get(DefaultBubbles.GRAY_WHITE_TEXT, getContext(), (int) getTextSize()));
+//      setCurrentBubbleStyle(DefaultBubbles.get(DefaultBubbles.GRAY_WHITE_TEXT, getContext(), (int) getTextSize()));
       this.savedHint = getHint();
    }
 

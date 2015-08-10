@@ -7,7 +7,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.0.0'
+        classpath 'com.android.tools.build:gradle:1.2.3'
 //        classpath 'com.squareup.gradle:gradle-android-test-plugin:0.9.1-SNAPSHOT'
     }
 }
@@ -30,8 +30,8 @@ dependencies {
 }
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion '21.1.2'
+    compileSdkVersion 22
+    buildToolsVersion '22.0.1'
 }
 
 // SONATYPE DEPLOYMENT
@@ -49,51 +49,51 @@ configurations {
     }
 }
 
-signing {
-    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
-    sign configurations.archives
-}
+//signing {
+//    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
+//    sign configurations.archives
+//}
 
-uploadArchives {
-    configuration = configurations.archives
-    repositories.mavenDeployer {
-        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-        repository(url: sonatypeRepo) {
-            authentication(userName: sonatypeUsername, password: sonatypePassword)
-        }
-
-        snapshotRepository(url: sonatypeSnapshotRepo) {
-            authentication(userName: sonatypeUsername, password: sonatypePassword)
-        }
-
-        pom.project {
-            name 'Chips'
-            packaging 'aar'
-            description 'EyeEm style text baloons library'
-            url 'https://github.com/eyeem/chips-android'
-
-            scm {
-                url 'scm:git@github.com:eyeem/chips-android.git'
-                connection 'scm:git@github.com:eyeem/chips-android.git'
-                developerConnection 'scm:git@github.com:eyeem/chips-android.git'
-            }
-
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-
-            developers {
-                developer {
-                    id 'vishna'
-                    name 'Lukasz Wisniewski'
-                    email 'lukasz@eyeem.com'
-                }
-            }
-        }
-    }
-}
+//uploadArchives {
+//    configuration = configurations.archives
+//    repositories.mavenDeployer {
+//        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+//
+//        repository(url: sonatypeRepo) {
+//            authentication(userName: sonatypeUsername, password: sonatypePassword)
+//        }
+//
+//        snapshotRepository(url: sonatypeSnapshotRepo) {
+//            authentication(userName: sonatypeUsername, password: sonatypePassword)
+//        }
+//
+//        pom.project {
+//            name 'Chips'
+//            packaging 'aar'
+//            description 'EyeEm style text baloons library'
+//            url 'https://github.com/eyeem/chips-android'
+//
+//            scm {
+//                url 'scm:git@github.com:eyeem/chips-android.git'
+//                connection 'scm:git@github.com:eyeem/chips-android.git'
+//                developerConnection 'scm:git@github.com:eyeem/chips-android.git'
+//            }
+//
+//            licenses {
+//                license {
+//                    name 'The Apache Software License, Version 2.0'
+//                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    distribution 'repo'
+//                }
+//            }
+//
+//            developers {
+//                developer {
+//                    id 'vishna'
+//                    name 'Lukasz Wisniewski'
+//                    email 'lukasz@eyeem.com'
+//                }
+//            }
+//        }
+//    }
+//}
